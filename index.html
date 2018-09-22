@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="Vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="Vendors/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="Vendors/css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="Resources/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Felipa|Italianno" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Katharos</title>
+    </head>
+    <body>
+        
+        <header>
+            <!--<img src="Resources/css/img/logo.png" alt="Katharos logo" class="logo">-->
+            <nav>
+                <div class="row">
+                    
+                    <ul class="main-nav">
+                        <li><a href="#">Cleaning Service</a></li>
+                        <li><a href="#">How it works</a></li>
+                        <li><a href="#">Our Cities</a></li>
+                        <li><a href="#">Sign up</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <style>
+                * {box-sizing: border-box}
+               
+                .mySlides {display: none}
+                img {
+                    vertical-align: middle;
+                    height: 60vh;
+                }
+
+                /* Slideshow container */
+                .slideshow-container {
+                  max-width: 60%;
+                  position: relative;
+                  margin: auto;
+                }
+
+                /* Next & previous buttons */
+                .prev, .next {
+                  cursor: pointer;
+                  position: absolute;
+                  top: 50%;
+                  width: auto;
+                  padding: 16px;
+                  margin-top: -22px;
+                  color: white;
+                  font-weight: bold;
+                  font-size: 18px;
+                  transition: 0.6s ease;
+                  border-radius: 0 3px 3px 0;
+                }
+
+                /* Position the "next button" to the right */
+                .next {
+                  right: 0;
+                  border-radius: 3px 0 0 3px;
+                }
+
+                /* On hover, add a black background color with a little bit see-through */
+                .prev:hover, .next:hover {
+                  background-color: rgba(0,0,0,0.8);
+                }
+
+                /* Caption text */
+                .text {
+                  color: #f2f2f2;
+                  font-size: 15px;
+                  padding: 8px 12px;
+                  position: absolute;
+                  bottom: 8px;
+                  width: 100%;
+                  text-align: center;
+                }
+
+                /* Number text (1/3 etc) */
+                .numbertext {
+                  color: #f2f2f2;
+                  font-size: 12px;
+                  padding: 8px 12px;
+                  position: absolute;
+                  top: 0;
+                }
+
+                /* The dots/bullets/indicators */
+                .dot {
+                  cursor: pointer;
+                  height: 15px;
+                  width: 15px;
+                  margin: 0 2px;
+                  background-color: #bbb;
+                  border-radius: 50%;
+                  display: inline-block;
+                  transition: background-color 0.6s ease;
+                }
+
+                .active, .dot:hover {
+                  background-color: #717171;
+                }
+
+                /* Fading animation */
+                .fade {
+                  -webkit-animation-name: fade;
+                  -webkit-animation-duration: 1.5s;
+                  animation-name: fade;
+                  animation-duration: 1.5s;
+                }
+
+                @-webkit-keyframes fade {
+                  from {opacity: .4} 
+                  to {opacity: 1}
+                }
+
+                @keyframes fade {
+                  from {opacity: .4} 
+                  to {opacity: 1}
+                }
+
+                /* On smaller screens, decrease text size */
+                @media only screen and (max-width: 300px) {
+                  .prev, .next,.text {font-size: 11px}
+                }
+            </style>
+
+
+            <div class="slideshow-container">
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <img src="Resources/img/1.jpg" style="width:100%">
+              <div class="text">Caption Text</div>
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 3</div>
+              <img src="Resources/img/2.jpg" style="width:100%">
+              <div class="text">Caption Two</div>
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 3</div>
+              <img src="Resources/img/3.jpg" style="width:100%">
+              <div class="text">Caption Three</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+       
+         </div>
+
+            <br>
+
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+
+            <script>
+            /*var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              if (n > slides.length) {slideIndex = 1}    
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+            }*/
+                var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {slideIndex = 1}
+                slides[slideIndex-1].style.display = "block";
+                setTimeout(showSlides, 3000); // Change image every 2 seconds
+            } 
+            </script>
+            
+            <div class="hero-text-box">
+                <h1><span style="font-family: 'Italianno', cursive; font-size: 130%; margin-top: 10px">katharos</span><span style="font-size: 80%"> : [clean; pure]</span></h1>
+                <a class="btn btn-full" href="#"> Book now</a>
+                <a class="btn btn-ghost" href="#"> Book now</a>
+            </div>
+        </header>
+        
+        <section class="section-features">
+            <div class="row">
+                <h2>Get luxury cleaning not just any cleaning</h2>
+                <p class="long-copy">Hello, we're Katharos, your new luxurious cleaning service. We know you're always busy and don't have time to clean. We take care of that, we're really good at it, we promise!</p>
+            </div>
+            
+            <div class="row">
+                <div class="col span-1-of-4 box">
+                    <i class="ion-calendar icon-big"></i>
+                    <h3>Up to 365 days/year</h3>
+                    <p>
+                        Never clean again! We really mean that. Our subscription plans incude up to 365 days/year coverage. Your can also choose to order more flexibly if that's your style.
+                    </p>
+                </div>
+                
+                <div class="col span-1-of-4 box">
+                    <i class="ion-calendar icon-big"></i>
+                    <h3>Up to 365 days/year</h3>
+                    <p>
+                        Never clean again! We really mean that. Our subscription plans incude up to 365 days/year coverage. Your can also choose to order more flexibly if that's your style.
+                    </p>
+                </div>
+                
+                <div class="col span-1-of-4 box">
+                    <i class="ion-calendar icon-big"></i>
+                    <h3>Up to 365 days/year</h3>
+                    <p>
+                        Never clean again! We really mean that. Our subscription plans incude up to 365 days/year coverage. Your can also choose to order more flexibly if that's your style.
+                    </p>
+                </div>
+                
+                <div class="col span-1-of-4 box">
+                    <i class="ion-calendar icon-big"></i>
+                    <h3>Up to 365 days/year</h3>
+                    <p>
+                        Never clean again! We really mean that. Our subscription plans incude up to 365 days/year coverage. Your can also choose to order more flexibly if that's your style.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-houses">
+            <ul class="house-showcase clearfix">
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/1.jpg">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/2.jpg">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/3.jpg">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/4.jpg">
+                    </figure>
+                </li>
+            </ul>
+            <ul class="house-showcase clearfix">
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/5.jpg">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/6.jpg">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/7.jpg">
+                    </figure>
+                </li>
+                <li>
+                    <figure class="house-photo">
+                        <img src="Resources/img/8.jpg">
+                    </figure>
+                </li>
+            </ul>
+        </section>
+        
+        <section class="section-steps">
+            <div class="row">
+                <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2 steps-box">
+                    <img src="Resources/img/app-iPhone.png" alt="Katharos app on iPhone" class="app-screen">
+                </div>
+                <div class="col span-1-of-2 steps-box">
+                    <div class="works-step">
+                        <div>1</div>
+                        <p>Choose the subscritpion plan that best fits your needs and sign up today.</p>
+                    </div>
+                    <div class="works-step">
+                        <div>2</div>
+                        <p>Choose the subscritpion plan that best fits your needs and sign up today.</p>
+                    </div>
+                    <div class="works-step">
+                        <div>3</div>
+                        <p>Choose the subscritpion plan that best fits your needs and sign up today.</p>
+                    </div>
+                    
+                    <a href="#" class="btn-app"><img src="Resources/img/download-app.svg" alt="App Store Button"></a>
+                    <a href="#" class="btn-app"><img src="Resources/img/download-app-android.png" alt="Play Store Button"></a>
+                </div>
+            </div>
+        </section>
+                
+        <section class="section-cities">
+            <div class="row">
+                <h2>We're currently cleaning in these cities.</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-4 box">
+                    <img src="Resources/img/miami.jpg">
+                    <h3>Miami</h3>
+                    <div class="city-feature">
+                        <i class="ion-ios7-person icon-small"></i>
+                        Happy customers.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ribbon-b icon-small"></i>
+                        Trained & certified employees.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ios7-time-outline icon-small"></i>
+                        Service available at any time.
+                    </div>
+                </div>
+                <div class="col span-1-of-4 box">
+                    <img src="Resources/img/newyork.jpg">
+                    <h3>New York City</h3>
+                    <div class="city-feature">
+                        <i class="ion-ios7-person icon-small"></i>
+                        Happy customers.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ribbon-b icon-small"></i>
+                        Trained & certified employees.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ios7-time-outline icon-small"></i>
+                        Service available at any time.
+                    </div>
+                </div>
+                <div class="col span-1-of-4 box">
+                    <img src="Resources/img/goldengate.jpg">
+                    <h3>San Francisco</h3>
+                    <div class="city-feature">
+                        <i class="ion-ios7-person icon-small"></i>
+                        Happy customers.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ribbon-b icon-small"></i>
+                        Trained & certified employees.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ios7-time-outline icon-small"></i>
+                        Service available at any time.
+                    </div>
+                </div>
+                <div class="col span-1-of-4 box">
+                    <img src="Resources/img/whitehouse.jpg">
+                    <h3>Washington D.C.</h3>
+                    <div class="city-feature">
+                        <i class="ion-ios7-person icon-small"></i>
+                        Happy customers.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ribbon-b icon-small"></i>
+                        Trained & certified employees.
+                    </div>
+                    <div class="city-feature">
+                        <i class="ion-ios7-time-outline icon-small"></i>
+                        Service available at any time.
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+         <section class="section-testimonials">
+            <div class="row">
+                <h2>Our customers can't live without us</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <blockquote>
+                        Omnifood is just awesome! I just launched a startup which leaves me with no time for cooking, so Omnifood is a life-saver. Now that I got used to it, I couldn't live without my daily meals!
+                        <cite><img src="resources/img/customer-1.jpg">Alberto Duncan</cite>
+                    </blockquote>
+                </div>
+                <div class="col span-1-of-3">
+                    <blockquote>
+                       Inexpensive, healthy and great-tasting meals, delivered right to my home. We have lots of food delivery here in Lisbon, but no one comes even close to Omifood. Me and my family are so in love!
+                        <cite><img src="resources/img/customer-2.jpg">Joana Silva</cite>
+                    </blockquote>
+                </div>
+                <div class="col span-1-of-3">
+                    <blockquote>
+I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!
+                    <cite><img src="resources/img/customer-3.jpg">Milton Chapman</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+            
+        <section class="section-plans js--section-plans" id="plans">
+            <div class="row">
+                <h2>Start cleaning today</h2>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <div class="plan-box js--wp-4">
+                        <div>
+                            <h3>Premium</h3>
+                            <p class="plan-price">$399 <span>/ month</span></p>
+                            <p class="plan-price-meal">That's only 13.30$ per meal</p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>1 meal every day</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Order 24/7</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Access to newest creations</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Free delivery</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-full">Sign up now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                        <div>
+                            <h3>Pro</h3>
+                            <p class="plan-price">$149 <span>/ month</span></p>
+                            <p class="plan-price-meal">That's only 14.90$ per meal</p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>1 meal 10 days/month</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Order 24/7</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Access to newest creations</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Free delivery</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-ghost">Sign up now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-3">
+                    <div class="plan-box">
+                        <div>
+                            <h3>Starter</h3>
+                            <p class="plan-price">19$ <span>/ meal</span></p>
+                            <p class="plan-price-meal">&nbsp;</p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>1 meal</li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Order from 8 am to 12 pm</li>
+                                <li><i class="ion-ios7-close-empty icon-small"></i></li>
+                                <li><i class="ion-ios7-checkmark-empty icon-small"></i>Free delivery</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-ghost">Sign up now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-training">
+                           
+            <div class="row">
+                 <h2>Sign up for Our Top Quality Training</h2>
+                <p class="long-copy">Katharos does not only provide the best quality cleaning services, but we also ensure our employees 
+are properly trained and prepared for their cleaning duties under our standards. Our training is also available to anyone who
+is ready to advance in their career as a certified professional for top cleaning standards. We also provide training to freelance
+cleaning professionals for any client loyal to their cleaning staff and wishes to provide them with better preparation and skills in 
+their services.</p>
+            </div>
+        </section>
+        
+        <section class="section-form">
+            <div class="row">
+                <h2>We're happy to hear from you</h2>
+            </div>
+            <div class="row">
+                <form method="post" action="#" class="contact-form">
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="name" id="name" placeholder="Your name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="email" name="email" id="email" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="find-us">How did you find us?</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <select name="find-us" id="find-us">
+                                <option value="friends" selected>Friends</option>
+                                <option value="search">Search engine</option>
+                                <option value="ad">Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Newsletter?</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="checkbox" name="news" id="news" checked> Yes, please
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Drop us a line</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="message" placeholder="Your message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Send it!">
+                        </div>
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </section>
+    </body>
+</html>
+    
+    
+    
